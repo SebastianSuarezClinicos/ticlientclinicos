@@ -20,9 +20,10 @@ jobs:
           submodules: true
           lfs: false
           
-      - uses: actions/setup-node@v3
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: '18.x'
           
       - name: Install dependencies
         run: npm install
