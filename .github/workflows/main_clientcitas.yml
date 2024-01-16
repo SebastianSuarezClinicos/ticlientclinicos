@@ -27,10 +27,7 @@ jobs:
 
     - name: Build application
       run: npm run build
-
-    - name: Start application
-      run: npm run start
-   
+      
     - name: 'Deploy to Azure Web App'
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
@@ -44,3 +41,6 @@ jobs:
     - name: 'Set NODE_ENV to production'
       run: |
         echo "NODE_ENV=production" >> .env
+
+    - name: Start application
+      run: npm run start
