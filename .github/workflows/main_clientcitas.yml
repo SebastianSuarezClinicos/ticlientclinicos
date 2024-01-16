@@ -12,27 +12,35 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+       
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'Clientcitas'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_17CBA13281714434BAAFC35F3A7586E6 }}
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      # Additional steps to improve the deployment process
-      - name: 'Set NODE_ENV to production'
-        run: |
-          echo "NODE_ENV=production" >> .env
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build application
+      run: npm run build
+
+    - name: Start application
+      run: npm run start
+   
+    - name: 'Deploy to Azure Web App'
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'Clientcitas'
+        slot-name: 'Production'
+        package: .
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_17CBA13281714434BAAFC35F3A7586E6 }}
+
+    # Additional steps to improve the deployment process
+    - name: 'Set NODE_ENV to production'
+      run: |
+        echo "NODE_ENV=production" >> .env
