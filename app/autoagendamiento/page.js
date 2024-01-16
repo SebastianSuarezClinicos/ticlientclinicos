@@ -18,10 +18,12 @@ export default function Autoagendamiento() {
   const [sendCode, setsendCode] = useState(false); // activa el modal para el código
   const [modalInfoContact, setModalInfoContact] = useState(false); //maneja la visibilidad del modal información de contacto
 
-  // const obtenerCookie = async () => {
-  //   const response = await axios.post(`http://127.0.0.1:8080`);
-  //   console.log(response);
-  // };
+  const obtenerCookie = async () => {
+    const response = await axios.post(
+      `https://apicitas.azurewebsites.net/Autogestion/TestCookie`
+    );
+    console.log(response);
+  };
 
   return (
     <main className=" min-h-screen">
