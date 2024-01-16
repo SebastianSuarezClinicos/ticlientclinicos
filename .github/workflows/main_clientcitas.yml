@@ -59,4 +59,4 @@ jobs:
           app-name: 'Clientcitas'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9B2E2B07FB4A40A997A85D80C1A5821E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_17CBA13281714434BAAFC35F3A7586E6 }}
