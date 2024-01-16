@@ -37,12 +37,12 @@ export default function Autoagendamiento() {
           <ModalInfoContact setModalInfoContact={setModalInfoContact} />
         )}
       </div>
-      {/* <button
+      <button
         className="bg-black p-4 tex-twhite"
         onClick={() => obtenerCookie()}
       >
         obtener cookie
-      </button> */}
+      </button>
     </main>
   );
 }
