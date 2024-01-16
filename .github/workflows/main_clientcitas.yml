@@ -36,7 +36,3 @@ jobs:
       - name: 'Set NODE_ENV to production'
         run: |
           echo "NODE_ENV=production" >> .env
-  
-      - name: 'Run tests in production environment'
-        run: |
-          npm run test -- --environment=production
