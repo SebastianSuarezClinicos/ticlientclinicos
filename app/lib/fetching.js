@@ -25,6 +25,7 @@ export const LoginFetch = async (data) => {
       return "inactivo";
     }
   } catch (error) {
+    console.log(error);
     if (error.code === "ERR_NETWORK") {
       return "sin sistema";
     }
