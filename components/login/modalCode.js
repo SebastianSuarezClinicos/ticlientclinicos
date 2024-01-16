@@ -35,8 +35,7 @@ export const ModalCode = () => {
       setContextData(() => ({
         history: response.history,
       }));
-      // router.push("/autoagendamiento/home");
-      alert("ir a home");
+      router.push("/autoagendamiento/home");
     } else if (response === "sin sistema") {
       alert("sin sistema");
     } else {

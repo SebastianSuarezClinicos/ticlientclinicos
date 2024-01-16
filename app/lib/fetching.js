@@ -5,6 +5,12 @@ import axios from "axios";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL_LOGIN;
 const codigoUrl = process.env.NEXT_PUBLIC_API_URL_CODE;
 
+// dev environment
+const apiLocalURL = "http://127.0.0.1:8000/Autoagendamiento/Login";
+const codeLocalURL =
+  "http://127.0.0.1:8000/Autoagendamiento/verification/verify-code";
+const cuposLocalURL = "http://127.0.0.1:8000/Autoagendamiento/space_avaliable";
+
 // form login
 export const LoginFetch = async (data) => {
   try {
@@ -25,8 +31,6 @@ export const LoginFetch = async (data) => {
     return error;
   }
 };
-
-// const datauseraccess = decode(response.data.token, "CL1N1CO$");
 
 // verification code login
 export const CodeLoginFetch = async (data, token) => {
@@ -56,20 +60,17 @@ export const CodeLoginFetch = async (data, token) => {
   }
 };
 
-// if (
-//     error.response.data.detail ==
-//     "Código incorrecto, por favor inténtelo de nuevo."
-//   ) {
-//     alert("Código incorrecto, por favor inténtelo de nuevo.");
-//     setLoading(false);
-//   } else if (
-//     error.response.data.detail == "El código de verificación ha expirado."
-//   ) {
-//     alert("El código de verificación ha expirado.");
-//     setLoading(false);
-//   } else if (
-//     error.response.data.detail == "Código de verificación no encontrado."
-//   ) {
-//     alert("Código de verificación no encontradó");
-//     setLoading(false);
-//   }
+// get cupos disponibles
+export const GetCuposDisponibles = async () => {
+  try {
+    const response = await axios.post(`${cuposLocalURL}`);
+
+    const cuposArrayOriginal = Object.values(
+      response.data["Cupos disponibles"]
+    );
+
+    return cuposArrayOriginal;
+  } catch (error) {
+    return "Error from backend";
+  }
+};

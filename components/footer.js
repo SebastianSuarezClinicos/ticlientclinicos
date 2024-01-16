@@ -18,7 +18,13 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <ul className="pb-4 text-black font-bold">Politica de datos</ul>
+          <a
+            className="pb-4 text-black font-bold"
+            href="/Politica de Protección de Datos Personales Clinicos IPS.pdf"
+            target="_blank"
+          >
+            Politica de datos
+          </a>
         </div>
       </div>
     </main>

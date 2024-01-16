@@ -10,12 +10,12 @@ import Image from "next/image";
 import { LoginFetch } from "@/app/lib/fetching";
 
 // component
-export const FormLogin = ({ setsendCode }) => {
+export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
   //
   // states
   const { setContextData } = useDataContext();
-  const [usernotFound, setusernotFound] = useState(false); // maneja el estado de los mensajes de error
-  const [loadingButton, setloadingButton] = useState(false); // maneja el estado loading del boton
+  const [usernotFound, setusernotFound] = useState(false); //maneja el estado de los mensajes de error
+  const [loadingButton, setloadingButton] = useState(false); //maneja el estado loading del boton
 
   // react-hook-form
   const {
@@ -27,8 +27,8 @@ export const FormLogin = ({ setsendCode }) => {
   const on_Submit = handleSubmit(async (data) => {
     //
     // change state
-    setusernotFound(false); // reinicia los mensaje de error
-    setloadingButton(true); // activa el loading del boton
+    setusernotFound(false); //reinicia los mensaje de error
+    setloadingButton(true); //activa el loading del boton
 
     // HTTP request
     const response = await LoginFetch(data);
@@ -45,6 +45,11 @@ export const FormLogin = ({ setsendCode }) => {
       setloadingButton(true);
     }
   });
+
+  // update modal información de contacto
+  const changeModalInfoContact = () => {
+    setModalInfoContact(true);
+  };
 
   return (
     <main className="col-span-1 flex justify-start text-black">
@@ -149,9 +154,12 @@ export const FormLogin = ({ setsendCode }) => {
         </form>
 
         <div className="container flex flex-col items-center justify-between">
-          <div className="w-full text-base font-bold pt-20 sm:pb-4 text-center text-indigo-500">
+          <a
+            className="w-full text-base font-bold pt-20 sm:pb-4 text-center text-indigo-500 cursor-pointer"
+            onClick={() => changeModalInfoContact()}
+          >
             ¿No puedes iniciar sesión?
-          </div>
+          </a>
         </div>
       </div>
     </main>
