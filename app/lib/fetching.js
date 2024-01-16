@@ -35,12 +35,17 @@ export const LoginFetch = async (data) => {
 // verification code login
 export const CodeLoginFetch = async (data, token) => {
   try {
-    const access_code = { codigo: data.codigo };
-    const response = await axios.post(`${codigoUrl}`, access_code, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    const access_code = { codigo: data.codigo, token: token };
+    const response = await axios.post(
+      `${codigoUrl}`,
+      access_code
+      // , {
+      //   headers: {
+      //     Authorization: "Bearer " + token,
+      //   },
+    );
+
+    console.log(response);
 
     if (response.data[0] === "Verificacion exitosa") {
       return response.data;

@@ -31,18 +31,24 @@ export const ModalCode = () => {
 
     // HTTP request
     const response = await CodeLoginFetch(data, contextData.codeToken);
-    if (response[0] === "Verificacion exitosa") {
-      setContextData(() => ({
-        history: response.history,
-      }));
-      router.push("/autoagendamiento/home");
-    } else if (response === "sin sistema") {
-      alert("sin sistema");
-    } else {
-      console.log("respuesta ", response);
-      setMessageError(response);
-      setloadingButton(false);
-    }
+
+    alert(response);
+    setloadingButton(false);
+
+    // router.push("/autoagendamiento/home");
+
+    // if (response[0] === "Verificacion exitosa") {
+    //   setContextData(() => ({
+    //     history: response.history,
+    //   }));
+    //   router.push("/autoagendamiento/home");
+    // } else if (response === "sin sistema") {
+    //   alert("sin sistema");
+    // } else {
+    //   console.log("respuesta ", response);
+    //   setMessageError(response);
+    //   setloadingButton(false);
+    // }
   });
 
   return (
