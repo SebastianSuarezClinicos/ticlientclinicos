@@ -59,9 +59,9 @@ export const HistoryCitasUser = ({ setModalAsignCitaUser }) => {
         </button>
       </div>
 
-      <div className=" px-10 py-10 text-base font-bold">
+      <div className=" px-10 py-5 text-base font-bold">
         <div className="pb-2 font-bold text-custom-clinicos-secundario">
-          Filtros:
+          Citas recientes:
         </div>
         <div className="flex items-center justify-stretch">
           {/* <SelectVariants /> */}
@@ -72,12 +72,13 @@ export const HistoryCitasUser = ({ setModalAsignCitaUser }) => {
       <div></div>
 
       <div className="grid grid-cols-1 sm:px-2 lg:px-10 gap-2">
-        <div className="grid grid-cols-5 gap-3 py-3 items-center text-center sm:text-xs lg:text-base font-bold bg-slate-100 rounded-md">
-          <div className="pl-5 text-start">Servicio de cita</div>
-          <div> Fecha y hora de la cita</div>
-          <div> Sede de atención</div>
-          <div> Responsable de asignación</div>
-          <div> Estado de la cita</div>
+        <div className="grid grid-cols-6 gap-3 py-3 items-center text-center sm:text-xs lg:text-base font-bold bg-slate-100 rounded-md">
+          <div className="pl-5 text-start">Servicio</div>
+          <div> Fecha</div>
+          <div> Hora</div>
+          <div> Sede</div>
+          <div> Asigno</div>
+          <div> Estado</div>
         </div>
 
         {/* {Object.entries(contextData.history.history).map(([id, cita]) => (
@@ -95,10 +96,11 @@ export const HistoryCitasUser = ({ setModalAsignCitaUser }) => {
 
         <div
           // key={id}
-          className="grid grid-cols-5 gap-4 py-3 border-b-4 border-slate-100 rounded-lg text-center text-sm cursor-pointer hover:bg-slate-100"
+          className="grid grid-cols-6 gap-4 py-3 border-b-4 border-slate-100 rounded-lg text-center text-sm cursor-pointer hover:bg-slate-100"
         >
-          <div className="text-start pl-5"> SALUD OCUPACION</div>
+          <div className="text-start pl-5"> SALUD OCUPACIONAL</div>
           <div> 01-12-2023</div>
+          <div> 06:00 AM</div>
           <div> SAN MARTÍN</div>
           <div> JOSE JUNCO</div>
           <div>CANCELADA</div>

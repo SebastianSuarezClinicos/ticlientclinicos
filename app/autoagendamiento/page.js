@@ -2,6 +2,7 @@
 
 // import
 import { useState } from "react";
+import axios from "axios";
 
 // components
 import { NavarLogin } from "@/components/login/navbar";
@@ -17,6 +18,11 @@ export default function Autoagendamiento() {
   const [sendCode, setsendCode] = useState(false); // activa el modal para el código
   const [modalInfoContact, setModalInfoContact] = useState(false); //maneja la visibilidad del modal información de contacto
 
+  // const obtenerCookie = async () => {
+  //   const response = await axios.post(`http://127.0.0.1:8080`);
+  //   console.log(response);
+  // };
+
   return (
     <main className=" min-h-screen">
       <NavarLogin />
@@ -31,6 +37,12 @@ export default function Autoagendamiento() {
           <ModalInfoContact setModalInfoContact={setModalInfoContact} />
         )}
       </div>
+      {/* <button
+        className="bg-black p-4 tex-twhite"
+        onClick={() => obtenerCookie()}
+      >
+        obtener cookie
+      </button> */}
     </main>
   );
 }

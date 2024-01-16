@@ -2,9 +2,15 @@
 
 // imports
 import Image from "next/image";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useRouter } from "next/navigation";
 
 // component
 export const InfoUser = ({ setModalInfoContact }) => {
+  //
+  // router
+  const router = useRouter();
+
   //change modal
   const openModalInfoContact = () => {
     setModalInfoContact(true);
@@ -12,7 +18,15 @@ export const InfoUser = ({ setModalInfoContact }) => {
 
   return (
     <main className="col-span-1 rounded-lg bg-white text-black">
-      <div className="flex items-center px-7 pt-20">
+      <a
+        className="flex items-center justify-end pt-5 pr-10 font-bold"
+        onClick={() => {
+          router.push("/autoagendamiento");
+        }}
+      >
+        <LogoutIcon /> Salir
+      </a>
+      <div className="flex items-center px-7 pt-10">
         <Image
           className="inline-block h-24 w-24 rounded-full ring-2 object-contain ring-white shadow-xl"
           src="/ecopetrolLogo.png"

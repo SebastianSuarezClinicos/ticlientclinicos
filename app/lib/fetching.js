@@ -36,13 +36,17 @@ export const LoginFetch = async (data) => {
 export const CodeLoginFetch = async (data, token) => {
   try {
     const access_code = { codigo: data.codigo, token: token };
+    // const response = await axios.post(
+    //   `${codigoUrl}`,
+    //   access_code
+    //   // , {
+    //   //   headers: {
+    //   //     Authorization: "Bearer " + token,
+    //   //   },
+    // );
     const response = await axios.post(
-      `${codigoUrl}`,
+      "https://apicitas.azurewebsites.net/Autoagendamiento/logout/TestCookie",
       access_code
-      // , {
-      //   headers: {
-      //     Authorization: "Bearer " + token,
-      //   },
     );
 
     console.log(response);
