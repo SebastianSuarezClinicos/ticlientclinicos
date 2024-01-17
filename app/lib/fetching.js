@@ -26,10 +26,9 @@ export const LoginFetch = async (data) => {
     }
   } catch (error) {
     console.log(error);
-    if (error.code === "ERR_NETWORK") {
+    if (error.code === "ERR_NETWORK" || error.request.status === 500) {
       return "sin sistema";
     }
-    return error;
   }
 };
 
