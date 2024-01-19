@@ -31,7 +31,9 @@ export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
     setloadingButton(true); //activa el loading del boton
 
     // HTTP request
-    // const response = await LoginFetch(data);
+    const response = await LoginFetch(data);
+
+    console.log(response);
     // if (response.token) {
     //   setContextData(() => ({
     //     codeToken: response.token,
