@@ -30,7 +30,7 @@ export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
     setusernotFound(false); //reinicia los mensaje de error
     setloadingButton(true); //activa el loading del boton
 
-    print("", data);
+    console.log("", data);
 
     // HTTP request
     const response = await LoginFetch(data);
