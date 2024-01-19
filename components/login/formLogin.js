@@ -30,6 +30,8 @@ export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
     setusernotFound(false); //reinicia los mensaje de error
     setloadingButton(true); //activa el loading del boton
 
+    print("", data);
+
     // HTTP request
     const response = await LoginFetch(data);
     if (response.token) {
@@ -123,7 +125,7 @@ export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
               {errors.correo.message}
             </span>
           )}
-          <div className="pb-4">
+          <div className="pb-1">
             <input
               type="Email"
               placeholder="Correo corporativo"
@@ -133,6 +135,28 @@ export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@clinicos\.com\.co$/,
                   message: "El dominio no es valido",
+                },
+              })}
+            ></input>
+          </div>
+          {errors.contraseña && (
+            <span className="text-xs text-red-400">
+              {errors.contraseña.message}
+            </span>
+          )}
+          <div className="pb-4">
+            <input
+              type="text"
+              placeholder="Contraseña"
+              className="w-full border rounded-lg h-8 text-sm text-center bg-custom-morado-claro"
+              {...register("contraseña", {
+                required: {
+                  value: true,
+                  message: "La contraseña es requerida",
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9!@#$%^&*()-_+=<>?]+$/,
+                  message: "Ingresa una contraseña sin espacios",
                 },
               })}
             ></input>
