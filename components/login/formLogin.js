@@ -30,22 +30,20 @@ export const FormLogin = ({ setsendCode, setModalInfoContact }) => {
     setusernotFound(false); //reinicia los mensaje de error
     setloadingButton(true); //activa el loading del boton
 
-    console.log("", data);
-
     // HTTP request
-    const response = await LoginFetch(data);
-    if (response.token) {
-      setContextData(() => ({
-        codeToken: response.token,
-      }));
-      setsendCode(true);
-    } else if (response === "inactivo") {
-      setusernotFound(true);
-      setloadingButton(false);
-    } else if (response == "sin sistema") {
-      alert("sin sistema");
-      setloadingButton(true);
-    }
+    // const response = await LoginFetch(data);
+    // if (response.token) {
+    //   setContextData(() => ({
+    //     codeToken: response.token,
+    //   }));
+    //   setsendCode(true);
+    // } else if (response === "inactivo") {
+    //   setusernotFound(true);
+    //   setloadingButton(false);
+    // } else if (response == "sin sistema") {
+    //   alert("sin sistema");
+    //   setloadingButton(true);
+    // }
   });
 
   // update modal información de contacto
